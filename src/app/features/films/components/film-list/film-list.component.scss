@@ -1,0 +1,26 @@
+@use 'abstracts/mixins' as *;
+
+:host {
+  .film-card {
+    background-color: #1d1d1e;
+    border-radius: 8px;
+    display: flex;
+    overflow: hidden;
+
+    img {
+      @include aspect-ratio(4, 3);
+
+      flex-shrink: 0;
+      display: block;
+      max-width: 30%;
+      object-fit: cover;
+      object-position: 100% 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    .content {
+      padding: 16px;
+    }
+  }
+}

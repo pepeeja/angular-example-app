@@ -1,0 +1,60 @@
+:host {
+  // position: fixed;
+
+  header {
+    height: 80px;
+    background-color: #000;
+
+    .navigation {
+      color: #ccc;
+      flex: 1;
+      list-style: none;
+      margin-bottom: 0;
+
+      li {
+        text-transform: uppercase;
+
+        a {
+          cursor: pointer;
+
+          // padding: 0 8px;
+
+          &:hover {
+            color: #fff;
+            transition: 0.5s;
+          }
+        }
+
+        .active {
+          color: #ffcc01;
+          padding-bottom: 8px;
+          border-bottom: #ffcc01 2px solid;
+          transition: 0.2s;
+
+          &:hover {
+            color: #ffcc01;
+          }
+        }
+      }
+    }
+
+    .logo {
+      margin: 0 40px;
+    }
+  }
+
+  .floating-header {
+    top: 0;
+    position: fixed;
+    z-index: 9999;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease-out, height 0.15s ease;
+  }
+
+  .sticky {
+    height: 80px;
+    opacity: 1;
+    transition: opacity 0.25s ease-out, height 0.15s ease;
+  }
+}

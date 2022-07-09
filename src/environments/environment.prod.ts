@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  bffUrl: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
 };

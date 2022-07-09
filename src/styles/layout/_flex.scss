@@ -1,0 +1,62 @@
+.flex {
+  box-sizing: border-box;
+
+  &.flex-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &.spacing-1 {
+      gap: 8px;
+    }
+
+    &.spacing-2 {
+      gap: 16px;
+    }
+
+    &.spacing-3 {
+      gap: 24px;
+    }
+
+    &.spacing-4 {
+      gap: 32px;
+    }
+
+    &.column {
+      flex-direction: column;
+    }
+
+    &.no-wrap {
+      flex: 0 0 auto;
+    }
+  }
+
+  &.flex-item {
+    margin: 0;
+
+    &.flex-grow {
+      flex: 1;
+    }
+  }
+}
+
+$-alignments: ('center', 'space-between', 'space-around', 'space-evenly', 'flex-start', 'flex-end');
+
+@each $align in $-alignments {
+  .justify-#{$align} {
+    justify-content: #{$align};
+  }
+
+  .items-#{$align} {
+    align-items: #{$align};
+  }
+
+  .justify-items-#{$align} {
+    justify-items: #{$align};
+  }
+
+  .content-#{$align} {
+    align-content: #{$align};
+  }
+}

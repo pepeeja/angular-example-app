@@ -1,0 +1,14 @@
+@font-face {
+  font-family: StarJedi;
+  src: url('/assets/fonts/StarJedi.woff') format('woff'), url('/assets/fonts/StarJedi.otf') format('opentype'), url('/assets/fonts/StarJedi.ttf') format('truetype');
+}
+
+// @font-face {
+//   font-family: StarJedi;
+//   font-weight: bold;
+//   src: url('/assets/fonts/StarJediRounded.ttf') format('truetype');
+// }
+
+.star-jedi {
+  font-family: StarJedi, Roboto, 'Helvetica Neue', sans-serif !important;
+}

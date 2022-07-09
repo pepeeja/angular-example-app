@@ -1,0 +1,70 @@
+@use 'sass:math' as math;
+
+$-grid-columns: 12;
+$-grid-spacing: 3%;
+
+.row {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+}
+
+.col {
+  box-sizing: border-box;
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+@for $i from 1 through $-grid-columns {
+  .col-#{$i} {
+    box-sizing: border-box;
+    flex-basis: math.div(100%, $-grid-columns) * $i;
+    max-width: math.div(100%, $-grid-columns) * $i;
+  }
+}
+
+@mixin -col-factory($this-prefix) {
+  .col-#{$this-prefix} {
+    box-sizing: border-box;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  }
+  @for $i from 1 through $-grid-columns {
+    .col-#{$this-prefix}-#{$i} {
+      box-sizing: border-box;
+      flex-basis: math.div(100%, $-grid-columns) * $i;
+      max-width: math.div(100%, $-grid-columns) * $i;
+    }
+  }
+}
+
+@for $i from 1 through length($-breakpoint-prefixes) {
+  $this-prefix: nth($-breakpoint-prefixes, $i);
+
+  @if $this-prefix == 'xs' {
+    @include xs {
+      @include -col-factory($this-prefix);
+    }
+  } @else if $this-prefix == 'sm' {
+    @include sm {
+      @include -col-factory($this-prefix);
+    }
+  } @else if $this-prefix == 'md' {
+    @include md {
+      @include -col-factory($this-prefix);
+    }
+  } @else if $this-prefix == 'lg' {
+    @include lg {
+      @include -col-factory($this-prefix);
+    }
+  } @else if $this-prefix == 'xl' {
+    @include xl {
+      @include -col-factory($this-prefix);
+    }
+  }
+}

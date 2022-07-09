@@ -1,0 +1,7 @@
+<div class="movie-title" [ngStyle]="{ 'background-image': backgroundImage }">
+  <div class="text-wrapper">
+    <h1 class="star-jedi">Star Wars</h1>
+    <h2 class="star-jedi">{{ metadata.title }}</h2>
+    <button mat-stroked-button (click)="watchTrailer()">Watch the Trailer</button>
+  </div>
+</div>

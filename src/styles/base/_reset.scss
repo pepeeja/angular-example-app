@@ -1,0 +1,42 @@
+html {
+  // Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`
+  box-sizing: border-box;
+
+  // Remove the margin in all browsers
+  margin: 0;
+
+  // Add support for document.body.requestFullScreen()
+  &::backdrop {
+    background-color: #000;
+  }
+
+  // Antialiasing
+  -webkit-font-smoothing: antialiased;
+
+  // Antialiasing
+  -moz-osx-font-smoothing: grayscale;
+
+  // Fix font resize problem in iOS
+  text-size-adjust: 100%;
+  color: #fff;
+  background-color: #161616;
+
+  // Font family
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0 auto;
+}

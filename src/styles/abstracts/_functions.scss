@@ -1,0 +1,92 @@
+@use 'sass:math' as math;
+
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url} Url
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+  @return asset($base, 'images/', $path);
+}
+
+/// Returns URL to a font based on its path
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: $base-url) {
+  @return asset($base, 'fonts/', $path);
+}
+
+// Strips the unit off
+@function strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function zero-unit($value, $unit: px) {
+  @if $value == 0 {
+    @return $value;
+  }
+  @return #{$value}#{$unit};
+}
+
+/// Convert px values to rem
+/// @param {String} $px - size in px
+/// @return {String} size in rem
+@function px-to-rem($px) {
+  @if $px not null {
+    // 16px is the default font-size used by browsers.
+    @return math.div($px, 16px) * 1rem;
+  }
+}
+
+/// Get letter spacing in em value
+/// @param {String} $tracking - letter spacing
+/// @param {String} $font-size - font size in px
+/// @return {String} letter spacing in em
+@function get-letter-spacing($tracking, $font-size) {
+  @return math.div($tracking, $font-size) * 1em;
+}
+
+/// Get letter spacing in em value
+/// @param {String} $tracking - letter spacing
+/// @return {String} letter spacing in em
+@function letter-spacing($tracking) {
+  @return zero-unit($tracking / 1000, em);
+}
+
+/// Removes N records from end of list
+/// @param {List} $list - list of records
+/// @param {Number} $index - index till which items should be removed from the end
+/// @return {List} updated list
+@function remove-from-end($list, $index) {
+  $result: null;
+
+  @if type-of($index) != number {
+    @warn "$index: #{quote($index)} is not a number for `remove-from-end`.";
+  } @else if $index == 0 {
+    @warn "List index 0 must be a non-zero integer for `remove-from-end`.";
+  } @else if abs($index) > length($list) {
+    @warn "List index is #{$index} but list is only #{length($list)} item long for `remove-from-end`.";
+  } @else {
+    $result: ();
+    $index: if($index < 0, length($list) + $index + 1, $index);
+
+    @for $i from 1 through length($list) {
+      @if $i < $index {
+        $result: append($result, nth($list, $i));
+      }
+    }
+  }
+
+  @return $result;
+}

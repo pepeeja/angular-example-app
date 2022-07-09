@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+@use '../themes/dark' as dark-theme;
+
+@import '~@angular/material/theming';
+
+@include mat.core;
+
+$primary: mat-palette(dark-theme.$sw-palette);
+$accent: mat-palette(dark-theme.$sw-palette, 900);
+$theme: mat-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      background: mat-color(dark-theme.$sw-palette, background),
+    ),
+  )
+);
+
+@include angular-material-color($theme);
+@include mat-core-color($theme);

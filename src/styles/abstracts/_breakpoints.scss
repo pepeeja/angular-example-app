@@ -1,0 +1,86 @@
+@use './functions' as *;
+
+$-breakpoints: (
+  // phone
+  xs: 0,
+  // tablets
+  sm: 600,
+  // small laptop
+  md: 900,
+  // desktop
+  lg: 1200,
+  // large screens
+  xl: 1536,
+  // extra large screen
+  xxl: 1920
+);
+$-breakpoint-prefixes: ('xs', 'sm', 'md', 'lg', 'xl', 'xxl');
+
+@function breakpoint($variant) {
+  @return map-get($-breakpoints, $variant);
+}
+
+// Extra small devices
+@mixin xs {
+  @media (min-width: zero-unit(breakpoint(xs))) {
+    @content;
+  }
+}
+
+// Small devices
+@mixin sm {
+  @media (min-width: zero-unit(breakpoint(sm))) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: zero-unit(breakpoint(md))) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: zero-unit(breakpoint(lg))) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: zero-unit(breakpoint(xl))) {
+    @content;
+  }
+}
+
+// Extra extra large devices
+@mixin xxl {
+  @media (min-width: zero-unit(breakpoint(xxl))) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: zero-unit($screen)) {
+    @content;
+  }
+}
+
+@for $i from 1 through length($-breakpoint-prefixes) {
+  $this-prefix: nth($-breakpoint-prefixes, $i);
+
+  .hidden-#{$this-prefix}-up {
+    @media (min-width: zero-unit(breakpoint($this-prefix))) {
+      display: none !important;
+    }
+  }
+
+  .hidden-#{$this-prefix}-down {
+    @media (max-width: zero-unit(breakpoint($this-prefix))) {
+      display: none !important;
+    }
+  }
+}

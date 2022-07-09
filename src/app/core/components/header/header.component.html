@@ -1,0 +1,39 @@
+<header class="flex flex-container items-center">
+  <ul class="navigation mat-h3 flex flex-container justify-space-around">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    </li>
+    <li>
+      <a routerLink="/actors" routerLinkActive="active">Actors</a>
+    </li>
+  </ul>
+  <img class="logo" src="assets/img/logo-white.png" height="56" />
+  <ul class="navigation mat-h3 flex flex-container justify-space-around">
+    <li>
+      <a routerLink="/films" routerLinkActive="active">Films</a>
+    </li>
+    <li>
+      <a routerLink="/planets" routerLinkActive="active">Planets</a>
+    </li>
+  </ul>
+</header>
+
+<header class="floating-header flex flex-container items-center" [ngClass]="{ sticky: sticky$ | async }">
+  <ul class="navigation mat-h3 flex flex-container justify-space-around">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    </li>
+    <li>
+      <a routerLink="/actors" routerLinkActive="active">Actors</a>
+    </li>
+  </ul>
+  <img class="logo" src="assets/img/logo-white.png" height="56" />
+  <ul class="navigation mat-h3 flex flex-container justify-space-around">
+    <li>
+      <a routerLink="/films" routerLinkActive="active">Films</a>
+    </li>
+    <li>
+      <a routerLink="/planets" routerLinkActive="active">Planets</a>
+    </li>
+  </ul>
+</header>

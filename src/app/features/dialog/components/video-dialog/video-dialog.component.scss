@@ -1,0 +1,22 @@
+@use 'abstracts/breakpoints' as *;
+
+:host {
+  height: 100%;
+
+  .container {
+    height: inherit;
+  }
+
+  .header {
+    align-self: flex-end;
+    margin-bottom: 24px;
+
+    @include md {
+      margin-bottom: 28px;
+    }
+
+    @include lg {
+      margin-bottom: 32px;
+    }
+  }
+}

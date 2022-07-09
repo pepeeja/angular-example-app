@@ -1,0 +1,26 @@
+/**
+  * Include this Sass mixin for aspect-ratio. Includes fallback
+  * for browsers that do not support aspect-ratio
+  * 
+  * Usage:
+  * @include aspect-ratio(16,9);
+  * creates a 16x9 container using aspect-ratio for supported browsers with fallback for browsers that do not. 
+  */
+@mixin aspect-ratio($width, $height) {
+  aspect-ratio: $width / $height;
+
+  // Fallback (current, using padding hack)
+  @supports not (aspect-ratio: 1 / 1) {
+    div::before {
+      float: left;
+      padding-top: 56.25%;
+      content: '';
+    }
+
+    div::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+}

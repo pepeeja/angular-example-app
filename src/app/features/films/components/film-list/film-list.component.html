@@ -1,0 +1,14 @@
+<div *ngIf="true" class="flex flex-container container column spacing-4">
+  <div class="film-card" *ngFor="let film of filmList">
+    <img src="assets/img/posters/{{ film.id }}.jpg" />
+    <div class="content">
+      <h3>{{ film.title }}</h3>
+      <h4>{{ film.releaseDate | date }}</h4>
+      <p>{{ film.openingCrawl }}</p>
+      <button mat-flat-button color="primary" [routerLink]="[filmMetadataMappingService.getById(film.id)?.url]">
+        Read more
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

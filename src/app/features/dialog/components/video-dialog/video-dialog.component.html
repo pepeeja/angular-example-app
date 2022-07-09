@@ -1,0 +1,10 @@
+<div class="container flex flex-container column">
+  <div class="header">
+    <button mat-icon-button aria-label="Close modal" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="flex flex-item flex-grow">
+    <sw-youtube-player [code]="data.videoCode"></sw-youtube-player>
+  </div>
+</div>
