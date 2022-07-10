@@ -5,7 +5,6 @@ import { ConfirmDialogData } from '@features/dialog/model/confirm-dialog-data.mo
 @Component({
   selector: 'sw-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
-  styleUrls: ['./confirm-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmDialogComponent {

@@ -4,9 +4,9 @@ import { HttpLink } from 'apollo-angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '@env';
+import { InMemoryCache } from '@apollo/client/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
-import { InMemoryCache } from '@apollo/client/core';
 import { HeaderComponent } from './components';
 
 @NgModule({

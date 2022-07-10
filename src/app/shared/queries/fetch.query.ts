@@ -2,7 +2,11 @@ import { Query } from 'apollo-angular';
 import { QueryOptionsAlone } from 'apollo-angular/types';
 import { BehaviorSubject, finalize, map, Observable } from 'rxjs';
 
-export class FetchQuery<Response extends Record<string, any>, Request = unknown, FullResponse = Record<string, Response>> extends Query<FullResponse, Request> {
+export class FetchQuery<
+  Response extends Record<string, any>,
+  Request = unknown,
+  FullResponse = Record<string, Response>,
+> extends Query<FullResponse, Request> {
   protected readonly path: string[] = [];
 
   private readonly loadingSubject = new BehaviorSubject(false);

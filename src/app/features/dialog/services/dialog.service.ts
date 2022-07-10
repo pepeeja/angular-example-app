@@ -10,7 +10,7 @@ type DialogDataMapping = {
   video: VideoDialogData;
 };
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class DialogService {
   constructor(private readonly dialog: MatDialog) {}
 

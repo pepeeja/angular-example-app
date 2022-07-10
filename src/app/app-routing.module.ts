@@ -12,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'films/:title',
-    loadChildren: () => import('./pages/films-details-page/films-details-page.module').then((module) => module.FilmsDetailsPageModule),
+    loadChildren: () =>
+      import('./pages/films-details-page/films-details-page.module').then((module) => module.FilmsDetailsPageModule),
   },
   {
     path: '404',

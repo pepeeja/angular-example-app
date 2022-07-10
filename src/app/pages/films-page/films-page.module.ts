@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FilmsPageComponent } from './films-page.component';
 import { FilmsModule } from '@features/films/films.module';
+import { FilmsPageComponent } from './films-page.component';
 
 @NgModule({
   declarations: [FilmsPageComponent],
