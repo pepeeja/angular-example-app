@@ -34,10 +34,11 @@ jobs:
       - name: npm install and build
         run: |
           npm ci
-          npm run build --deploy-url /${{ github.event.repository.name }}
+          npm run build
         env:
           CI: ${{ true }}
-
+          APP_BASE_HREF: /${{ github.event.repository.name }}
+          
       - name: Upload artifact for github pages
         uses: actions/upload-artifact@v3
         with:
