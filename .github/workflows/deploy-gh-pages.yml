@@ -34,7 +34,7 @@ jobs:
       - name: npm install and build
         run: |
           npm ci
-          npm run build
+          npm run build -- --base-href /${{ github.event.repository.name }}
         env:
           CI: ${{ true }}
           APP_BASE_HREF: /${{ github.event.repository.name }}
@@ -56,7 +56,7 @@ jobs:
           ref: gh-pages
       
       - name: Remove current branch files
-        run: rm -rf
+        run: rm -rf *
 
       - name: Retrieve github pages artifact
         uses: actions/download-artifact@v3
