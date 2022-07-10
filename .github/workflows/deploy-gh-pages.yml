@@ -1,4 +1,4 @@
-name: CI
+name: Deploy Github Pages
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
       - name: npm install and build
         run: |
           npm ci
-          npm run build
+          npm run build --deploy-url /${{ github.event.repository.name }}
         env:
           CI: ${{ true }}
 
