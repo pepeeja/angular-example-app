@@ -7,7 +7,7 @@
   * creates a 16x9 container using aspect-ratio for supported browsers with fallback for browsers that do not. 
   */
 @mixin aspect-ratio($width, $height) {
-  aspect-ratio: $width / $height;
+  aspect-ratio: div($width, $height);
 
   // Fallback (current, using padding hack)
   @supports not (aspect-ratio: 1 / 1) {
