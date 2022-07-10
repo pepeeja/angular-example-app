@@ -1,0 +1,22 @@
+:host {
+  .metascore-badge {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+
+    &.good {
+      background-color: #6c3;
+    }
+
+    &.average {
+      background-color: #fc3;
+    }
+
+    &.bad {
+      background-color: #f00;
+    }
+  }
+}

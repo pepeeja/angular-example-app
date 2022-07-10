@@ -7,7 +7,7 @@ import { environment } from '@env';
 import { AppRoutingModule } from '../app-routing.module';
 import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
 import { InMemoryCache } from '@apollo/client/core';
-import { HeaderComponent, SplashScreenComponent } from './components';
+import { HeaderComponent } from './components';
 
 @NgModule({
   imports: [ApolloModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule],
@@ -23,8 +23,8 @@ import { HeaderComponent, SplashScreenComponent } from './components';
       deps: [HttpLink],
     },
   ],
-  declarations: [HeaderComponent, SplashScreenComponent],
-  exports: [AppRoutingModule, BrowserAnimationsModule, HeaderComponent, SplashScreenComponent],
+  declarations: [HeaderComponent],
+  exports: [AppRoutingModule, BrowserAnimationsModule, HeaderComponent],
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

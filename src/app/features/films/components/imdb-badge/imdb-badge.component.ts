@@ -1,13 +1,13 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
-  selector: 'sw-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'sw-imdb-badge',
+  templateUrl: './imdb-badge.component.html',
+  styleUrls: ['./imdb-badge.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IMDbBadgeComponent {
-  @Input() filmId = '';
+  @Input() rating = 0;
 
   constructor() {}
 }

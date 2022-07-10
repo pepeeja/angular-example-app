@@ -1,0 +1,7 @@
+<div
+  matTooltip="Metascore"
+  class="metascore-badge flex flex-container items-center justify-center"
+  [ngClass]="{ good: metascore > 60, average: metascore < 61 && metascore > 39, bad: metascore < 40 }"
+>
+  {{ metascore }}
+</div>

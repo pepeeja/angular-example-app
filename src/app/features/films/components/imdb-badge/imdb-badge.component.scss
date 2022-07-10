@@ -1,0 +1,17 @@
+:host {
+  .imdb-badge {
+    width: fit-content;
+    border-radius: 16px;
+    background-color: #f6c700;
+    border: 1px solid #000;
+    color: #000;
+    cursor: default;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 16px;
+
+    .rating {
+      font-size: 14px;
+    }
+  }
+}
